@@ -1,0 +1,16 @@
+{
+  "name": "ENGR467_SIMULATOR",
+  "productName": "ENGR467_SIMULATOR",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Andy McDonald",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "9.0.2"
+  }
+}

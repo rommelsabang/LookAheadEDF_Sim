@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./styles.css" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+  <title>CPU Scheduler</title>
+</head>
+
+<body>
+  <h1>Look Ahead Earliest Deadline First Scheduling</h1>
+  <hr>
+
+  <h2 class='toside'>Edit Tasks</h2>
+  <section class="flex-container">
+    <div id="editTasks" class="sidebar">
+      <button id='addTask'>Add Task</button>
+      <button id='addInvocation'>Add Invocation</button>
+      <button id='removeInvocation'>Remove Invocation</button>
+      <button id='toggleTaskHelp'>?</button>
+    </div>
+    <div class='popup' id='popupTask'>
+      You can add tasks and invocations to the table via the buttons on the left. Task information can then be inputted via the table on the right. To remove a task, press the delete button on its row. To remove the last invocation, use the button to the left. Make sure that the Worst Case is higher than all invocations.
+    </div>
+    <table id='taskTable'>
+      <caption>Tasks</caption>
+      <tbody id='tasks'>
+        <tr id='header'>
+          <th></th>
+          <th>Task</th>
+          <th>Worst Case</th>
+          <th>Period</th>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <hr>
+
+  <h2 class='toside'>Edit Frequencies</h2>
+  <section class="flex-container">
+    <div id="editFrequencies" class="sidebar">
+      <button id='addFrequency'>Add Frequency</button>
+      <button id='removeFrequency'>Remove Frequency</button>
+      <button id='toggleFreqHelp'>?</button>
+    </div>
+    <div class='popup' id='popupFreq'>
+      You can add restrictive frequencies by pressing the button on the left and inputting their values relative to the max operating frequency on the right (Ex: 1, 0.75, 0.5). Rememeber to include 1 so that the algorithm can run at its max frequency.
+    </div>
+    <table id="frequencyTable">
+      <tbody id="frequencies">
+        <tr>
+          <th>Relative Frequency Restrictions</th>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <hr>
+
+  <h2 class='toside'>Edit Simulation</h2>
+  <section>
+    <div id="editSimulation">
+      <span>Simulation Time: <input id ='endTime' type='number'></span>
+      <button id='toggleSimHelp'>?</button>
+      <button id='simulate'>Simulate</button>
+      <div class='popup' id='popupSim'>
+        Add a max simulation time here before you press simulate. This will dictate how far to draw the output graph and apply the algorithm.
+      </div>
+    </div>
+  </section>
+  <hr>
+
+  <h2>Output Graph</h2>
+  <section>
+    <div id="outputGraph"></div>
+  </section>
+  
+  <h2>Output Data</h2>
+  <section class="flex-container">
+    <table>
+      <caption>Running Tasks</caption>
+      <tbody id="outputList">
+        <tr>
+          <th>Task Name</th>
+          <th>Frequency</th>
+          <th>Start Time</th>
+          <th>Duration</th>
+          <th>End Time</th>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <caption>Missed Deadlines</caption>
+      <tbody id="missedDeadlineList">
+        <tr>
+          <th>Task Name</th>
+          <th>Time</th>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
